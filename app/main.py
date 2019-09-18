@@ -9,6 +9,7 @@ from board import  update_board
 from random_snake import random_move
 from food_snake import food_move
 from wall_snake import wall_move
+from smart_snake import smart_move
 
 @bottle.route('/')
 def index():
@@ -41,7 +42,7 @@ def move():
     # 2 = food snake
     # 3 = wall snake
     # 4 = smart snake
-    snake_num = 3
+    snake_num = 4
     if snake_num == 1:
         direction = random_move()
     if snake_num == 2:
@@ -49,7 +50,7 @@ def move():
     if snake_num == 3:
         direction = wall_move(game_state, new_board)
     if snake_num == 4:
-        direction = 'up'
+        direction = smart_move(game_state, new_board)
     return move_response(direction)
 
 
