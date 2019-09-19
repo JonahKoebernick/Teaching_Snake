@@ -1,5 +1,7 @@
 # food_snake.py
-# This files picks a move to bring the snake closer to food and sends it to main.py
+# This snake is a little smarter
+# It won't run into itself or into a wall, but it is always searching for food
+# This creates a problem where it kills itself by getting too large
 #
 # The valid moves are 'up' 'down' 'left' 'right'
 
@@ -15,20 +17,23 @@ FOOD = 1
 HEAD = -2
 TAIL = -1
 
-
+# food_snake()
+# This function returns a move that will find food
+#
+# @parma state  - The JSON file of the game
+# @parma matrix - The matrix of the current board state
+# @return move  - The move to do
 def food_move(state, board_matrix):
 
     move = find_food(state, board_matrix)
     return move
 
 # find_food()
-#
 # This function finds the closest food to the snake
+#
 # @parma state
 # @parma board_matrix
 # @return move
-
-
 def find_food(state, board_matrix):
     min_sum = 1000
     middle_board = state["board"]["height"]/2
@@ -46,15 +51,13 @@ def find_food(state, board_matrix):
     return find_path(state, board_matrix, best_food["x"], best_food['y'])
 
 # find_path()
-#
 # This function finds the closest food to the snake
+#
 # @parma state
 # @parma board_matrix
 # @parma foodx
 # @parma foody
 # @return move
-
-
 def find_path(state, board_matrix, foodx, foody):
     height = state["board"]["height"]
     y = state['you']["body"][0]["y"]

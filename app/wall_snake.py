@@ -1,5 +1,6 @@
 # wall_snake.py
-# This snake wil avoid walls and snakes but isn't aware of food
+# This snake will only avoid walls at itself
+# It isn't aware of it's health or able to actively search for food
 #
 # The valid moves are 'up' 'down' 'left' 'right'
 
@@ -15,7 +16,12 @@ FOOD = 1
 HEAD = -2
 TAIL = -1
 
-
+# wall_move()
+# This function picks a move that won't result in death
+#
+# @parma state  - The JSON file of the game
+# @parma matrix - The matrix of the current board state
+# @return move  - The move to do
 def wall_move(state, matrix):
 
     height = state["board"]["height"]
