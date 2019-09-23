@@ -1,10 +1,17 @@
-import numpy as np
+# board.py
+# This function builds a martix of the board to use when determining he next move
+# Below is an exmaple of a 5x5 board with nothing on it
+#      0  1  2  3  4  5
+# 0 {[ 1, 1, 1, 1, 1, 1 ]
+# 1  [ 1, 1, 1, 1, 1, 1 ]
+# 2  [ 1, 1, 1, 1, 1, 1 ]
+# 3  [ 1, 1, 1, 1, 1, 1 ]
+# 4  [ 1, 1, 1, 1, 1, 1 ]
+# 5  [ 1, 1, 1, 1, 1, 1 ]}
+#
+#
 
-UNOCCUPIED = 1
-OCCUPIED = -1
-FOOD = 1
-HEAD = -2
-TAIL = -1
+import constants
 
 
 def update_board(state):

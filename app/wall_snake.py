@@ -5,16 +5,12 @@
 # The valid moves are 'up' 'down' 'left' 'right'
 
 import random
+import constants
 from pathfinding.core.diagonal_movement import DiagonalMovement
 from pathfinding.core.grid import Grid
 from pathfinding.finder.a_star import AStarFinder
 from random_snake import random_move
 
-UNOCCUPIED = 1
-OCCUPIED = -1
-FOOD = 1
-HEAD = -2
-TAIL = -1
 
 # wall_move()
 # This function picks a move that won't result in death
